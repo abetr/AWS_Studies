@@ -33,7 +33,7 @@ Resources:
             #! /bin/bash
             yum update -y
             yum install httpd -y
-            sudo apt-get install python3-pip
+            sudo yum install pip
             sudo pip install Flask
             cd /var/www/html
             FOLDER="https://raw.githubusercontent.com/abetr/AWS_Studies/master/aws/projects/Project-001-Roman-Numerals-Converter/"
