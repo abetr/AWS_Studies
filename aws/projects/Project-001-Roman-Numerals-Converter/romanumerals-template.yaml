@@ -36,7 +36,8 @@ Resources:
             cd /var/www/html
             FOLDER="https://raw.githubusercontent.com/abetr/AWS_Studies/master/aws/projects/Project-001-Roman-Numerals-Converter/"
             wget ${FOLDER}/templates/index.html
-            wget ${FOLDER}/result.html
+            wget ${FOLDER}/templates/result.html
+            cd ../
             wget ${FOLDER}app.py
             wget ${FOLDER}readme.md
             wget ${FOLDER}romanumerals-template.yaml
