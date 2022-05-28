@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: 2010-09-09
 Description: |
-    This CloudFormation Template was written for running Kittens Carousel Static Website on EC2. Kittens Carousel Static Website will be deployed on Amazon Linux 2 (XXXXXXXXXXXX) EC2 Instance with custom security group which allows http connections on port 80 and ssh port 22 from anywhere. Kittens Carousel Static Website is downloaded from my Public Github repository, then deployed on Apache Web Server.
+    This CloudFormation Template was written for running Roman Numerals Static Website on EC2. ROman Numerals Static Website will be deployed on Amazon Linux 2 (XXXXXXXXXXXX) EC2 Instance with custom security group which allows http connections on port 80 and ssh port 22 from anywhere. Roman Numerals Static Website is downloaded from my Public Github repository, then deployed on Apache Web Server.
 
 Resources:
   WebServerSecurityGroup:
@@ -23,10 +23,10 @@ Resources:
       InstanceType: t2.micro
       KeyName: firstkey
       SecurityGroupIds:
-        -  Project-101-kittens-carousel-static-website-ec2-SSH-HTTPS-HTTP-ALL
+        - SSH-HTTP-HTTPS
       Tags:
         - Key: Name
-          Value: Project-101-kittens-carousel-static-website-ec2
+          Value: roman-numerals-static-website-ec2
       UserData: 
         Fn::Base64: 
           |
@@ -34,12 +34,12 @@ Resources:
             yum update -y
             yum install httpd -y
             cd /var/www/html
-            FOLDER="https://raw.githubusercontent.com/deepvirtualdoubts/101-kittens-carousel-static-website-ec2/main/static-web/"
-            wget ${FOLDER}index.html
-            wget ${FOLDER}cat0.jpg
-            wget ${FOLDER}cat1.jpg
-            wget ${FOLDER}cat2.jpg
-            wget ${FOLDER}cat3.png
+            FOLDER="https://raw.githubusercontent.com/abetr/AWS_Studies/master/aws/projects/Project-001-Roman-Numerals-Converter/"
+            wget ${FOLDER}/templates/index.html
+            wget ${FOLDER}/result.html
+            wget ${FOLDER}app.py
+            wget ${FOLDER}readme.md
+            wget ${FOLDER}romanumerals-template.yaml
             systemctl start httpd
             systemctl enable httpd
 
@@ -48,4 +48,4 @@ Outputs:
     Value: !Sub 
       - http://${PublicAddress}
       - PublicAddress: !GetAtt WebServerHost.PublicDnsName
-    Description: Kittens Carousel Application URL
+    Description: Roman Numerals Convert Application URL
