@@ -1,0 +1,11 @@
+#!/bin/bash
+
+echo "Use this script to find actions from parameters"
+
+read -p "Enter username: " USER
+
+read -p "Enter instcande ID: " INSTANCE
+
+
+
+

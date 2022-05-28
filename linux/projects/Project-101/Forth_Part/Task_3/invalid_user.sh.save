@@ -1,0 +1,5 @@
+#!/bin/bash
+
+#invalid user
+
+sed 's/\\n/\n/g' certificate.pem | tee >> new.pem

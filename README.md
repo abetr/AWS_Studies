@@ -1,2 +1,1 @@
-# AWS_Studies
-90 Days of my AWS Adventure
+# clarusway-aws-11-22
